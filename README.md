@@ -4,7 +4,7 @@ Name: Igor Alekhnovych
 
 Student Number: D18130122
 
-# Description of the assignment
+# Description of the Assignment
 
 I have always been a big fan of Need for Speed games. My first video game was Need for Speed 3: Hot Pursuit that came out in 1998 and it is still my favourite racing game even today. In this game you can be either a cop or a racer, but I always wanted to be a cop. 
 
@@ -23,7 +23,7 @@ My video game is a classic top-down 2D racing game, such games have been popular
 - Arrow Keys to Steer
 - Space to Pause or Restart
 
-# How it works
+# How It Works
 
 There are 4 classes: Rapid_Response, Vehicle, Traffic and Player.
 
@@ -105,7 +105,7 @@ public boolean collision(ArrayList<Traffic> vehicles)
 On the other hand, traffic vehicles are fixed in their rows and after they spawn somewhere above the screen they go towards the bottom of the screen. Once they reach end of the screen, they spawn above the screen and so on. I am using random to choose from a multiple car images, also random is responsible for the car's speed and the car's initial position above the screen when it is reset.
 
 ```Java
-public void move(ArrayList<PImage> textures, int low, int high)
+    public void move(ArrayList<PImage> textures, int low, int high)
     {
         if ((y + 0.5 * height) > game.height + height)
         {
@@ -132,7 +132,63 @@ public void move(ArrayList<PImage> textures, int low, int high)
     }   // end reset
 ```
 
-# What I am most proud of in the assignment
+The Rapid_Response class does not have many particularly interesting things. Vehicles are created, added to the list of vehicles and reset, police car is also reset, the HUD is drawn and the road is drawn as well. I had a very funny bug that the car was leaving a ghost trail behind and I could fix it by drawing the road every frame instead of once.
+
+```Java
+    public void draw()
+    {
+        music.play();
+
+        drawMap();
+        drawHUD();
+
+        player();
+        traffic();
+
+        if(p.collision(vehicles))
+        {
+            music.pause();
+
+            crash.play();
+            crash.rewind();
+
+            status = "Crashed";
+            drawStatus();
+
+            reset();
+            noLoop();
+
+        }   // end if
+
+        if (score == 10000)
+        {
+            status = "Merit Awarded";
+            drawStatus();
+
+            reset();
+            noLoop();
+
+        }   // end if
+
+        if (score == 1000 || score == 2500 || score == 5000)
+        {
+            lowSpeed++;
+            topSpeed++;
+
+            speedometer += 20;
+
+            radio.play();
+            radio.rewind();
+
+        }   // end if
+        
+        score++;
+    }
+```
+
+Logic is really simple. When player's score is 1000, 2500 and 5000, traffic is going slightly faster and player's speed on HUD is increased. At this moment you can also briefly hear the police scanner. If score is 10000, player is awarded a merit, but if player crashed - gets only the crash sound. 
+
+# What I am Most Proud of in the Assignment
 
 I cannot say that there is any thing in particular that I am most proud of. I am proud of my whole project. It was a great experience to develop a video game, even such a simple one. I faced multiple issues and had to think of workarounds for them. Some of the ideas did remain on paper, because they were rather difficult to implement at this point: I had to scrap an idea of a mode which represents a self-driving car capable of avoiding obstacles and traffic. But I am proud of what I did so far, after thorough testing the game does not have any major bugs and I already have some plans for the new features. For example, better collision detection and better traffic AI.
 
