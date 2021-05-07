@@ -136,7 +136,8 @@ public void move(ArrayList<PImage> textures, int low, int high)
 
 I cannot say that there is any thing in particular that I am most proud of. I am proud of my whole project. It was a great experience to develop a video game, even such a simple one. I faced multiple issues and had to think of workarounds for them. Some of the ideas did remain on paper, because they were rather difficult to implement at this point: I had to scrap an idea of a mode which represents a self-driving car capable of avoiding obstacles and traffic. But I am proud of what I did so far, after thorough testing the game does not have any major bugs and I already have some plans for the new features. For example, better collision detection and better traffic AI.
 
-This is a youtube video:
+# Video
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](http://img.youtube.com/vi/1vQvvt9M_u4/0.jpg)](https://youtu.be/1vQvvt9M_u4)
+
 
